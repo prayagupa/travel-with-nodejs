@@ -1,0 +1,6 @@
+[
+{"busNumber" : 41, "from" : "North Seattle", "to": "Downtown Seattle"},
+{"busNumber" : 42, "from" : "South Seattle", "to": "Downtown Seattle"},
+{"busNumber" : 43, "from" : "South Seattle", "to": "Downtown Seattle"},
+{"busNumber" : 44, "from" : "South Seattle", "to": "Downtown Seattle"}
+]
