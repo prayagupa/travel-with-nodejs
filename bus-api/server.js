@@ -23,7 +23,7 @@ filesystem.readFile('data.json', 'utf8', (err, data) => {
 var jsonString = JSON.stringify(json)
 console.log("json " + JSON.stringify(json))
 
-  res.json(syncJson);
+  res.render('buses', {"buses" : syncJson})
 });
 
 

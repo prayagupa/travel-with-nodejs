@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>something</title>
+</head>
+
+<body>
+
+<table>
+<% buses.forEach((bus) => { %>
+  <tr> 
+    <td><%= bus.busNumber %></td> 
+    <td><%= bus.from %></td> 
+    <td><%= bus.to %></td> 
+  </tr>
+<% }) %>
+</table>
+
+</body>
+
+</html>
+
