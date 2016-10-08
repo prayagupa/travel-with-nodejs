@@ -1,0 +1,21 @@
+<% if(typeof message !== 'undefined') { %>
+   <h1> <%= message %> </h1>
+<% } %>
+<form id="contactus" method="POST">
+
+ <fieldset>
+  <label for="fullName"> Full name </label>
+  <input name="fullName"/>
+  <br/>
+   
+  <label for="email"> Email </label>
+  <input name="email"/>
+  <br/>
+
+  <label for="message"> Message </label>
+  <input name="message"/>
+  <br/>
+
+  <input type="submit" value="Suggest Us">
+ </fieldset>
+</form>
