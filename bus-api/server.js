@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var filesystem = require('fs');
 var formidable = require("formidable");
+var https = require('https');
 
 app.set('json spaces', 40)
 app.set('view engine', 'ejs');
@@ -14,6 +15,26 @@ app.get('/buses', (req, res) => {
   var syncJson = JSON.parse(filesystem.readFileSync('data.json', 'utf8'));
   res.render('buses', {"buses" : syncJson})
 });
+
+var download = function(url, dest, cb) {
+   var file = filesystem.createWriteStream(dest);
+   var request = https.get(url, function(httpResponse) {
+    httpResponse.pipe(file);
+    file.on('finish', function() {
+      console.log("piping to file finished")
+      file.close(cb);  // close() is async, call cb after close completes.
+    });
+   }).on('error', function(err) { // Handle errors
+    filesystem.unlink(dest); // Delete the file async. (But we don't check the result)
+    if (cb) cb(err.message);
+   });
+};
+ 
+app.get('/image', (req, res) => {
+ download('https://lastfm-img2.akamaized.net/i/u/64s/15cc734fb0e045e3baac02674d2092d6.png', 'porcupine.png', function(){
+   console.log("downloaded to porcupine.png") 
+ })
+})
 
 app.get('/contactus', (req, res) => {
      res.render('contactus')
