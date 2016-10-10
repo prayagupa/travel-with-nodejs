@@ -3,6 +3,7 @@ var app = express();
 var filesystem = require('fs');
 var formidable = require("formidable");
 var https = require('https');
+var database = require('./database')
 
 app.set('json spaces', 40)
 app.set('view engine', 'ejs');
@@ -48,14 +49,8 @@ app.post('/contactus', (req, res) => {
            res.render('contactus', {"message" : "Sorry sir, you need to fill in the form with non empty message."})
            res.end()
          } else {
-           //write to datastore
-           filesystem.appendFile("/var/log/atom", JSON.stringify(fields), function(err) {
-                 if(err) {
-                    return console.log(err);
-                 }
-                 console.log("The data is saved to database!");
-           })
-           res.render('contactus', {"message" : fields.fullName + ", Thanks for providing the suggestion."})
+          database.insert(JSON.stringify(fields))
+          res.render('contactus', {"message" : fields.fullName + ", Thanks for providing the suggestion."})
          }
      })
 })
