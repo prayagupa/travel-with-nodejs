@@ -49,7 +49,7 @@ app.post('/contactus', (req, res) => {
            res.render('contactus', {"message" : "Sorry sir, you need to fill in the form with non empty message."})
            res.end()
          } else {
-          database.insert(JSON.stringify(fields))
+          database.insert_data(JSON.stringify(fields))
           res.render('contactus', {"message" : fields.fullName + ", Thanks for providing the suggestion."})
          }
      })
