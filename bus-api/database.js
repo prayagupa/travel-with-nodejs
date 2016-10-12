@@ -22,10 +22,11 @@ module.exports = {
                 //mongoClient.open(function(err, mongoClient) {
                   // var db = mongoClient.db('easy-ride')
                    //db.collection("Feedback").insertOne(document)
-                MongoClient.connect("mongodb://localhost:27017/easy-ride", function(err, db){
-                  assert.equal(null, err);
-                  console.log("-- " + err);
+                MongoClient.connect("mongodb://172.17.0.1:27017/easyride", function(err, db){
+                  assert.equal(null, err)
                   db.collection("Feedback").insertOne(document)
+                  console.log(db.collection("Feedback").findOne())
+                  db.close()
                 })
                 //})
    }
