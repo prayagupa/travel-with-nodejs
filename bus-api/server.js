@@ -1,57 +1,49 @@
-var express = require('express');
-var app = express();
-var filesystem = require('fs');
-var formidable = require("formidable");
+var Express = require('Express');
+var app = Express();
+var Filesystem = require('fs');
+var Formidable = require("formidable");
 var https = require('https');
-var database = require('./database')
-var util = require('./util')
+var Database = require('./database')
+var Util = require('./util')
 
 app.set('json spaces', 40)
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.send('Hello Easy Bus!');
+    res.send('Hello Easy Bus!');
 });
 
 app.get('/buses', (req, res) => {
-  var syncJson = JSON.parse(filesystem.readFileSync('data.json', 'utf8'));
-  res.render('buses', {"buses" : syncJson})
+    var syncJson = JSON.parse(Filesystem.readFileSync('data.json', 'utf8'));
+    res.render('buses', {"buses": syncJson})
 });
 
 app.get('/image', (req, res) => {
- util.download('https://lastfm-img2.akamaized.net/i/u/64s/15cc734fb0e045e3baac02674d2092d6.png', 'porcupine.png', function(){
-   console.log("downloaded to porcupine.png") 
- })
+    Util.download('https://lastfm-img2.akamaized.net/i/u/64s/15cc734fb0e045e3baac02674d2092d6.png', 'porcupine.png', ()=> {
+        console.log("downloaded to porcupine.png")
+        res.sendFile(__dirname + '/porcupine.png');
+    })
 })
 
 app.get('/contactus', (req, res) => {
-     res.render('contactus')
+    res.render('contactus')
 });
 
 app.post('/contactus', (req, res) => {
-     var contactUs = new formidable.IncomingForm()
-     contactUs.parse(req, (err, fields, files) => {
-         var validation = !fields.fullName || !fields.email || !fields.message
-         if(validation) {
-           res.render('contactus', {"message" : "Sorry sir, you need to fill in the form with non empty message."})
-           res.end()
-         } else {
-          database.insert_data(fields)
-          res.render('contactus', {"message" : fields.fullName + ", Thanks for providing the suggestion."})
-         }
-     })
+    var contactUs = new Formidable.IncomingForm()
+    contactUs.parse(req, (err, fields, files) => {
+        var validation = !fields.fullName || !fields.email || !fields.message
+        if (validation) {
+            res.render('contactus', {"message": "Sorry sir, you need to fill in the form with non empty message."})
+            res.end()
+        } else {
+            Database.insert_data(fields)
+            res.render('contactus', {"message": fields.fullName + ", Thanks for providing the suggestion."})
+        }
+    })
 })
 
-var something = function(){
- filesystem.readFile('data.json', 'utf8', (err, data) => {
-  console.log(err + " " + data)
-  if (err) throw err;
-  json = JSON.parse(data);
- });
-}
-
-
 app.listen(3000, function () {
-  console.log('Bus app listening on port 3000!');
+    console.log('Bus app listening on port 3000!');
 });
 

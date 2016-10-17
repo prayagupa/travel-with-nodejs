@@ -13,21 +13,17 @@ module.exports = {
                  if(err) {
                     return console.log(err);
                  }
-                 console.log("The data is saved to database!");
+                 console.log("The data is saved to Database!");
            })
  
    },
   
    insert_data : function insert_data(document) {
-                //mongoClient.open(function(err, mongoClient) {
-                  // var db = mongoClient.db('easy-ride')
-                   //db.collection("Feedback").insertOne(document)
                 MongoClient.connect("mongodb://172.17.0.1:27017/easyride", function(err, db){
                   assert.equal(null, err)
                   db.collection("Feedback").insertOne(document)
                   console.log(db.collection("Feedback").findOne())
                   db.close()
                 })
-                //})
    }
 }
