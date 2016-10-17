@@ -1,0 +1,14 @@
+<% if(typeof message !== 'undefined') { %>
+<h1> Decrypted message is : <%= message %> </h1>
+<% } %>
+
+<form id="message" method="POST">
+
+ <fieldset>
+  <label for="message"> Message </label>
+  <input name="message" value="ba12e76147f0f251b3a2975f7acaf446a86be1b4e2a67a5d51d62f7bfbed5c03"/>
+  <br/>
+
+  <input type="submit" value="Send Message">
+ </fieldset>
+</form>
