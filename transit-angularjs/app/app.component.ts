@@ -3,5 +3,5 @@ import { Component } from '@angular/core';
   selector: 'TransitAppView',
   template: '<h1>Transit app</h1>'
 })
-export class AppComponent { }
+export class TransitAppComponent { }
 
