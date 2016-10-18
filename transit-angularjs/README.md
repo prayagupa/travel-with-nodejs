@@ -5,10 +5,12 @@ npm --version
 
 ```
 
-Get starte from https://github.com/angular/quickstart/blob/master/README.md 
+Get started from https://github.com/angular/quickstart/blob/master/README.md 
 
 ```
 npm install
 npm run typings install
+
+npm start
 
 ```
