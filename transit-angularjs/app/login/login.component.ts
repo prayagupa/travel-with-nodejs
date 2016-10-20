@@ -12,28 +12,19 @@ export class Login {
 
 @Component({
     selector: 'LoginView',
-    template: `
-    <h1>{{title}}</h1>
-    <div>
-        <label>username : </label> 
-        <input value="{{login.username}}"/>
-    </div>
-    <div>
-        <label>password : </label>
-        <input value="{{login.password}}" type="password"/>
-    </div>
-    
-    <div>
-        <input value="Login" type="submit"/>
-    </div>
-    `
+    templateUrl: 'app/login/login.component.html'
 })
 
 export class LoginComponent {
     title = 'Login';
-    login: Login = {
-        username: "prayagupd",
-        password: 'zYx'
-    };
+
+    onSubmit() {
+        var user : Login = {
+            username: 'pra',
+            password: 'yag'
+        }
+
+        console.dir(user)
+    }
 }
 

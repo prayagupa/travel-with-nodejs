@@ -4,3 +4,4 @@
 *.module.js
 *.module.js.map
 typings/
+target
