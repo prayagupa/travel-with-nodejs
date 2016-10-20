@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ProductDetailComponent }   from './product-detail.component'
+import { ProductDetailComponent }   from './product/product-detail.component'
 
 @NgModule({
     imports:    [ BrowserModule, FormsModule ],
