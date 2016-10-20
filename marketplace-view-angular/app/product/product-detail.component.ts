@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
 
-import { Product } from '../Product'
+import { Product } from './Product'
 
 @Component({
     selector: 'my-product-detail',
