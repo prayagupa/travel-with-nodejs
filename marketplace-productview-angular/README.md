@@ -1,19 +1,13 @@
-* what represents Model, View and Controller in an angular application 
-(component)? 
-* Angular 2 is a component based framework. Support this statement.
-* What decorator function is used to decorate a service class?
-* What are lifecycle hooks? How are they useful?
-* Does angular 2 has two-way data binding default? Can we achieve it?
-* What is the idea behind angular forcing us to write a separate 
-bootstrap file (main.ts)?
+Angular Piping
+-------
 
-* What was purpose of each?
-```
-    package.json
-    tsconfig.json
-    typings.json
-    Systemjs.config.js
-``` 
-
-* The command you used for starting your application was “npm start”, 
-is this the inbuilt npm command to start your  angular application?
+* How do you create a instance of an injector for dependency injection in Angular 2?
+* With DI application becomes more flexible for changes. Support this statement.
+* @Injectable() is a mandatory decorator used for  a Service class. (YES/NO)
+* What is a service provider?
+* Dependency instance in Angular 2 is an application wide singleton. (YES/NO)
+* Registering provider in the root module is the only way to scope a service to become application wide.
+* What are dependency injection tokens? What is OpaqueToken?
+* How can you make a dependency optional?
+* Apart from services, we also need dependency injection in our components and directives. 
+But we never used @injectable() for our component. Why?
