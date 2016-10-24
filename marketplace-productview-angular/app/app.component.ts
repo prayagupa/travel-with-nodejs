@@ -1,33 +1,20 @@
-import {Component}        from '@angular/core';
-import {Product}  from './products/Product'
-import {ProductService}   from './products/product.service'
-import {OnInit}         from '@angular/core'
-
+import {Component}    from    '@angular/core'
 
 @Component({
-    selector: 'ProductView',
-    templateUrl: './app/products/product.component.html',
-    styleUrls : ['./app/products/products.css'],
-    providers: [ProductService]
+    moduleId: module.id,
+    selector: 'DashboardMainView',
+    template: `
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+  </nav>
+  <router-outlet></router-outlet>
+  `
+    ,
+    styleUrls: ['./app/app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     title = "Marketplace";
-    selectedProduct: Product;
-    products: Product[];
-
-    constructor(private productService: ProductService) {
-    }
-
-    onSelect(product: Product): void {
-        this.selectedProduct = product;
-    }
-
-    getProducts(): void {
-        this.productService.getProducts().then(products => this.products = products);
-    }
-
-    ngOnInit(): void {
-        this.getProducts();
-    }
 }

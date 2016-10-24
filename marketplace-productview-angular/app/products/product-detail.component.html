@@ -2,19 +2,18 @@
     <h2>{{product.name}} details!</h2>
     <div><label>id: </label>{{product.id}}</div>
     <div>
-        <label>name: </label>
+        <label>Name: </label>
         <input [(ngModel)]="product.name" placeholder="name"/>
     </div>
     <div>
-        <label>Unit price: </label>
-        {{product.price}}
+        <label>Unit price: </label> {{product.price}}
     </div>
     <div>
-        <label>Quantity (Select how many albums, price will be shown below): </label>
+        <label>Quantity: </label>
         <input [(ngModel)]="quantity" placeholder="quantity"/>
     </div>
     <div>
-        <label>Total price: </label>
-        {{product.price | calculatePrice:quantity}}
+        <label>Total price: </label> {{product.price | calculatePrice:quantity}}
     </div>
+    <button (click)="goBack()">Back</button>
 </div>
