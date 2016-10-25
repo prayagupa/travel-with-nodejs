@@ -1,20 +1,15 @@
-/**
- * Created by prayagupd
- * on 10/24/16.
- */
-
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {ProductDetailComponent} from "./products/product-detail.component";
-import {ProductComponent} from "./products/product.component";
 
+import { DashboardComponent }   from './dashboard/dashboard.component';
+import { ProductsComponent }      from './product/products.component';
+import { ProductDetailComponent }  from './product-detail/product-detail.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'dashboard',  component: DashboardComponent },
-    { path: 'detail/:id', component: ProductDetailComponent },
-    { path: 'products',     component: ProductComponent }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard',  component: DashboardComponent },
+  { path: 'detail/:id', component: ProductDetailComponent },
+  { path: 'products',     component: ProductsComponent }
 ];
 
 @NgModule({
@@ -23,4 +18,3 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {}
-

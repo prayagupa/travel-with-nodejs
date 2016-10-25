@@ -1,37 +1,31 @@
-/**
- * Created by prayagupd
- * on 10/24/16.
- */
-
-import {Component}        from '@angular/core'
-import {OnInit}           from '@angular/core'
-import {Router}           from '@angular/router'
-import {ProductService} from "../products/product.service";
-import {Product} from "../products/Product";
+import { Component }        from '@angular/core'
+import { Product }          from '../Product'
+import { ProductService }   from '../product.service'
+import { OnInit }           from '@angular/core'
+import { Router }           from '@angular/router'
 
 @Component({
     moduleId: module.id,
-    selector: 'DashboardView',
-    templateUrl: '../app/dashboard/dashboard.component.html',
-    styleUrls: ['../app/dashboard/dashboard.component.css']
+    selector: 'my-dashboard',
+    templateUrl: 'dashboard.component.html',
+    styleUrls: ['dashboard.component.css']
 })
 
 export class DashboardComponent implements OnInit {
 
-    products: Product[] = [];
+    products : Product[] = [];
+    constructor(
+        private productService:ProductService,
+        private router: Router
+        ) {  }
 
-    constructor(private productService: ProductService,
-                private router: Router) {
+    ngOnInit() : void {
+        this.productService.getProducts().then( products => this.products = products.slice(1,5) );
     }
 
-    ngOnInit(): void {
-        this.productService.getProducts().then(products => this.products = products.slice(1, 5));
-    }
-
-    gotoDetail(product: Product): void {
+    gotoDetail(product: Product):void {
         let link = ['/detail', product.id];
         this.router.navigate(link);
     }
 
 }
-

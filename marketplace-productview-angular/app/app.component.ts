@@ -1,9 +1,9 @@
-import {Component}    from    '@angular/core'
+import { Component }    from    '@angular/core'
 
 @Component({
-    moduleId: module.id,
-    selector: 'DashboardMainView',
-    template: `
+  moduleId: module.id,
+    selector: 'my-app',
+  template: `
   <h1>{{title}}</h1>
   <nav>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
@@ -12,9 +12,9 @@ import {Component}    from    '@angular/core'
   <router-outlet></router-outlet>
   `
     ,
-    styleUrls: ['./app/app.component.css']
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {
-    title = "Marketplace";
+    title = "CS572 Angular / Lab 5";
 }
