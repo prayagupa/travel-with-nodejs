@@ -16,8 +16,8 @@ export class ArtistService {
 
   getMusics(): Promise<string> {
 
-    return new Promise<string>(function (resolve, reject) {
-      resolve('whats up')
-    });
+    return this.http.get("https://jsonplaceholder.typicode.com/posts/1").toPromise()
+      .then(response => JSON.stringify(response.json()))
+      .catch(error => Promise.reject("you fked it"))
   }
 }

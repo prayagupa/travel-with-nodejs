@@ -15,13 +15,5 @@ import {HttpModule} from "@angular/http";
   providers: [ArtistService],
   bootstrap: [AppComponent]
 })
-export class AppModule implements OnInit {
-
-  constructor(private service: ArtistService) {
-
-  }
-
-  ngOnInit(): void {
-    console.log(this.service.getMusics())
-  }
+export class AppModule{
 }
