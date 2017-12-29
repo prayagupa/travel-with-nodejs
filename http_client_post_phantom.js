@@ -2,10 +2,12 @@
 
 var page = require('webpage').create(),
     server = 'https://jsonplaceholder.typicode.com/posts',
-    data = '{"universe": "expanding", "answer": 42}';
+    data = '{"userName": "expanding", "answer": 42}';
 
 var headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "X-PLATFORM": "pc",
+    "X-APP-VERSION": "1.0"
 }
 
 page.open(server, 'post', data, headers, function (status) {
