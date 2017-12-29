@@ -15,6 +15,14 @@ https://plugins.jetbrains.com/plugin/6098?pr=idea
 
 https://www.jetbrains.com/webstorm/
 
+
+run using phantomjs
+--
+
+```
+phantomjs filename.js
+```
+
 Refs
 -------
 
