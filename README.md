@@ -19,6 +19,9 @@ https://www.jetbrains.com/webstorm/
 run using phantomjs
 --
 
+Its weird that phantomjs is not chrome replica, as chrome gives me CORS issue(makes sense
+because server is not allowing CORS), while phantomjs works fine.
+
 ```
 phantomjs filename.js
 ```

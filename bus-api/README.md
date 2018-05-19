@@ -1,7 +1,16 @@
 build
 --------------
 
-mongodb container - https://github.com/prayagupd/docker-mongodb/tree/master/3.0
+mongodb container
+
+```
+git clone https://github.com/prayagupd/docker-mongodb.git
+git pull https://github.com/docker-library/mongo.git master
+#git push origin HEAD
+cd 3.7
+docker build -t mongodb .
+docker run -it -p 27017:27017 mongodb
+```
 
 or 
 
@@ -35,6 +44,15 @@ run
 
 ```
 node server.js
+```
+
+APIs - server.js
+----------------
+
+```
+/buses
+/message
+/contactus
 ```
 
 Resources
