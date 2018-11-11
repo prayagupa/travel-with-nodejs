@@ -1,4 +1,9 @@
 
+upgrading to 6.0 needed angular.js
+
+```
+
+```
 
 ```
 npm install
