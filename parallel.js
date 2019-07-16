@@ -6,8 +6,8 @@ function getAd(){
 }
 
 function asyncSendAd(){
+  console.log("sending async ad")
   var ad = getAd()
-  console.log("sending async ad: " + ad)
   return ad
 }
 
@@ -17,6 +17,6 @@ async function syncSendAd(){
   return ad
 }
 
-asyncSendAd()
+//asyncSendAd()
 syncSendAd()
 
