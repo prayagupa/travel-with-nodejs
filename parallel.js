@@ -27,8 +27,17 @@ function syncSendAd1(){
   return ad
 }
 
+function syncSendAd2(){
+  var task = new Promise((resolve, reject) => {
+    resolve({"addId": "ad01", "message": "stuff"})
+  })
 
+  return task
+}
 
 //syncSendAd()
-syncSendAd1()
+//syncSendAd1()
+syncSendAd2().then(ad => {
+  console.log(JSON.stringify(ad))
+})
 
