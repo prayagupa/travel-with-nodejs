@@ -1,4 +1,4 @@
-function getAd(){
+function asyncGetAd(){
   return new Promise((resolve, reject)  => {
     console.log("please check our new TV")
     resolve({"adId": 1, "message": "checkout our new TV"})
@@ -6,8 +6,8 @@ function getAd(){
 }
 
 function asyncSendAd(){
-  console.log("sending async ad")
-  var ad = getAd()
+  console.log("preparing to send async ad")
+  var ad = asyncGetAd()
   return ad
 }
 
@@ -17,6 +17,18 @@ async function syncSendAd(){
   return ad
 }
 
-//asyncSendAd()
-syncSendAd()
+function syncSendAd1(){
+  var ad = {}
+  Promise.all([asyncSendAd()]).then(r => {
+    console.log("[syncSend11] " + JSON.stringify(r))
+    ad = r
+  })
+  console.log("[syncSend12] " + JSON.stringify(ad))
+  return ad
+}
+
+
+
+//syncSendAd()
+syncSendAd1()
 
