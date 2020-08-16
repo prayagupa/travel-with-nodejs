@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const app = express()
  
-app.get('/', function(req, res) {
+app.get('/video-streaming', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
 })
  
