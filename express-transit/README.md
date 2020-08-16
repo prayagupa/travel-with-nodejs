@@ -19,3 +19,10 @@ $ curl --request GET http://127.0.0.1:8000 | python -m json.tool
     "miles": 14
 }
 ```
+
+
+audio streaming
+----------------
+
+![](audio_streaming.png)
+
