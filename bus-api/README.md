@@ -53,6 +53,8 @@ APIs - server.js
 /buses
 /message
 /contactus
+
+/static/images
 ```
 
 Resources

@@ -42,11 +42,14 @@ app.post('/message', (req, res) => {
     })
 });
 
-app.get('/image', (req, res) => {
-    Util.download('https://lastfm-img2.akamaized.net/i/u/64s/15cc734fb0e045e3baac02674d2092d6.png', 'porcupine.png',
+app.get('/static/images', (req, res) => {
+	var pike_market='https://t1.gstatic.com/images?q=tbn:ANd9GcTI58TWp_oqZeCDlR6Q99nQR8bjmo85zAqYa_lHoCXJiEdnE2EI';
+	var porcupine = 'https://lastfm-img2.akamaized.net/i/u/64s/15cc734fb0e045e3baac02674d2092d6.png';
+	var dest_file_name='pike_market.png';
+    Util.download(pike_market, dest_file_name,
         ()=> {
-            console.log("downloaded to porcupine.png")
-            res.sendFile(__dirname + '/porcupine.png');
+            console.log("downloaded to pike_market.png")
+            res.sendFile(__dirname + '/' + dest_file_name);
         })
 })
 
